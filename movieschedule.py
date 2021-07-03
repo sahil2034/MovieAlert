@@ -13,6 +13,11 @@ ROMEDY_NOW = "https://www.indiandth.in/epg/romedy-now-hd-3025-epg-schedule.html"
 FLIX_HD = "https://www.indiandth.in/epg/andflix-3026-epg-schedule.html"
 
 
+def divide_chunks(l, n):
+    # looping till length l
+    for i in range(0, len(l), n):
+        yield l[i:i + n]
+
 MOVIE_LINK_LIST = [MN_HD, STAR_MOVIES, STAR_MOVIES_SELECT, UTV_ACTION, SONY_PIX, MNX, PRIVE_HD,
                    ROMEDY_NOW, FLIX_HD, MOVIES_NOW]
 
@@ -36,7 +41,8 @@ for moviechannels in MOVIE_LINK_LIST:
                 cols = tr.find_all('td')
                 for td in cols:
                     moviedata.append(td.text)
-                    MovieDict[channels] = [moviedata]
+                    x = list(divide_chunks(moviedata, 4))
+                    MovieDict[channels] = [x]
 
 
 print(MovieDict)
