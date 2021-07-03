@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <title>TV MADE EASY</title>
+  </head>
+  <body>
+    <div class = "nav">
+      <div class = "one">
+          <h1 class = "title">TV MADE EASY</h1>
+        </div>
+      <div class = "two">
+        <img class ="image" src="television.png" alt="this is an image">
+        </div>
+      </div>
+      <div class="form">
+        <form action="{{ url_for('edit') }}" method="POST">
+            <label>Movie Name</label>
+            <input name="movie_name" type="text">
+            <label>Email</label>
+            <input name="author" type="text">
+            <label>Phone Number</label>
+            <input name = "number" type = "text">
+            <label>Channel Name</label>
+            <input name="channel_name" type="text">
+            <button type="submit">Add movie</button>
+        </form>
+      </div>
+
+  </body>
+</html>
